@@ -6,9 +6,10 @@
 /*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 13:57:26 by mtaib             #+#    #+#             */
-/*   Updated: 2022/10/29 16:14:45 by mtaib            ###   ########.fr       */
+/*   Updated: 2023/10/02 17:30:49 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 static int	isset(char c, char *set)
@@ -64,5 +65,6 @@ char	*ft_strtrim(char *s1, char *set)
 		start++;
 	}
 	str[i] = '\0';
+	free(s1);
 	return (str);
 }

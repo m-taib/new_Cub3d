@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   singelton_object.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaanni <mbaanni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 16:35:14 by mtaib             #+#    #+#             */
-/*   Updated: 2023/09/28 13:40:51 by mbaanni          ###   ########.fr       */
+/*   Updated: 2023/10/02 22:27:14 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ t_mapInfo*		get_type(void)
 	return (mapInfo);
 }
 
-t_player*	get_player(void)
-{
-	static t_player *player;
+// t_player*	get_player(void)
+// {
+// 	static t_player *player;
 
-	if (!player)
-	{
-		player = malloc(sizeof(t_player));
-		if (!player)
-			return (0);
-		player->x = 0;
-		player->y = 0;
-	}
-	return (player);
-}
+// 	if (!player)
+// 	{
+// 		player = malloc(sizeof(t_player));
+// 		if (!player)
+// 			return (0);
+// 		player->x = 0;
+// 		player->y = 0;
+// 	}
+// 	return (player);
+// }

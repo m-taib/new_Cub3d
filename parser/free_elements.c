@@ -6,18 +6,24 @@
 /*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:11:35 by mtaib             #+#    #+#             */
-/*   Updated: 2023/09/10 10:12:06 by mtaib            ###   ########.fr       */
+/*   Updated: 2023/10/02 20:54:23 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
+#include <stdio.h>
 
-void	free_elements(char **str)
+void	free_list(t_dirs **head)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		free(str[i++]);
-	free(str);
+	t_dirs	*tmp;
+	
+	while (*head)
+	{
+		tmp = *head;
+		free(tmp->key);
+		free(tmp->path);
+		*head = (*head)->next;
+		free(tmp);
+	}
+	free(*head);
 }

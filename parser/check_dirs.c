@@ -13,7 +13,7 @@
 #include "../includes/Cub3D.h"
 #include <stdio.h>
 
-int		check_path(char *path)
+int	check_path(char *path)
 {
 	mlx_texture_t	*ptr;
 
@@ -24,7 +24,7 @@ int		check_path(char *path)
 	return (0);
 }
 
-int		count_point(char *str)
+int	count_point(char *str)
 {
 	int		i;
 	int		count;
@@ -39,7 +39,7 @@ int		count_point(char *str)
 	return (count);
 }
 
-int		save_colors_value(char *str)
+int		save_colors_value(char dir, char *str)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,10 @@ int		save_colors_value(char *str)
 		if (str[i] == ',')
 			return (print_error(2));
 		n[j] = ft_atoi(&str[i]);
-		get_type()->colors[j] = n[j];
+		if (dir == 'C')
+			get_type()->c_color[j] = n[j];
+		else
+			get_type()->f_color[j] = n[j];
 		if (n[j] < 0 || n[j] > 255)
 			return (print_error(2));
 		while (str[i] && str[i] != ',')
@@ -67,7 +70,7 @@ int		save_colors_value(char *str)
 	return (0);
 }
 
-int		check_dirs(char *str)
+int		check_dirs(char dir, char *str)
 {
 	int		i;
 
@@ -79,7 +82,8 @@ int		check_dirs(char *str)
 			&& str[i] != ','  && str[0] != '-'
 			&& str[i] != '+')
 			return (print_error(2));
-	return (save_colors_value(str));
+	(void)dir;
+	return (1);
 }
 
 void		print_map_error(int i)
@@ -100,6 +104,8 @@ void		print_map_error(int i)
 			printf("\tNew line musnt be in map\n");
 	else if (i == 16)
 			printf("\tInvald map\n");
+	else if (i == 17)
+			printf("\tEmpty file\n");
 }
 
 int		print_error(int	i)
@@ -122,4 +128,5 @@ int		print_error(int	i)
 	print_map_error(i);
 	return (1);
 }
+
 

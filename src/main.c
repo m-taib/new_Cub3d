@@ -6,7 +6,7 @@
 /*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 10:20:15 by mbaanni           #+#    #+#             */
-/*   Updated: 2023/10/02 15:32:23 by mtaib            ###   ########.fr       */
+/*   Updated: 2023/10/02 22:25:30 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	set_value(t_mlx *mlx)
 	i = 0;
 	get_type()->mlx = mlx;
 	mlx->map = get_type()->map;
-	mlx->movex = get_player()->x;
-	mlx->movey = get_player()->y;
+	mlx->movex = get_type()->x;
+	mlx->movey = get_type()->y;
 	while (mlx->map[i])
 		i++;
 	mlx->map_hight = i;
@@ -73,7 +73,13 @@ int	main(int ac, char **av)
 		return (1);
 	ft_memset(&mlx, 0, sizeof(mlx));
 	if (ft_parse(*(av + 1)))
-		return (1);
+		{
+			while (1);
+			return (1);
+		}
+	
+	printf("end parsing\n");
+	exit(0);
 	set_value(&mlx);
 	load_mlx(&mlx);
 	if (load_image(&mlx))

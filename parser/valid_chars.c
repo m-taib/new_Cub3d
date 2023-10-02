@@ -6,7 +6,7 @@
 /*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 14:58:52 by mtaib             #+#    #+#             */
-/*   Updated: 2023/10/02 15:31:31 by mtaib            ###   ########.fr       */
+/*   Updated: 2023/10/02 18:10:11 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		is_valid_charset(char *str)
 	while (str[++i])
 	{
 		if (str[i] != '1' && str[i] != '0' && str[i] != ' '
-			&& !ft_strchr("NSEWCO", str[i])) //added 'CO'
+			&& !ft_strchr("NSEWCO", str[i]))
 			return (1);
 	}
 	return (0);
@@ -59,11 +59,11 @@ int		check_chars(char **map)
 		{
 			if (ft_strchr("NSEW", map[i][j]))
 			{
-				if (get_player()->x)
+				if (get_type()->x)
 					return (print_error(13));
 				get_type()->pa = set_angle(map[i][j]);
-				get_player()->x = j * BLOCSIZE;
-				get_player()->y = i * BLOCSIZE;
+				get_type()->x = j * BLOCSIZE;
+				get_type()->y = i * BLOCSIZE;
 				c = map[i][j];
 				map[i][j] = '0';
 			}

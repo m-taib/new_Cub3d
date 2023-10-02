@@ -6,7 +6,7 @@
 /*   By: mtaib <mtaib@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:12:49 by mtaib             #+#    #+#             */
-/*   Updated: 2023/09/11 10:45:40 by mtaib            ###   ########.fr       */
+/*   Updated: 2023/10/02 22:21:26 by mtaib            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_dirs		*lstnew(char	 *key, char *path)
 {
 	t_dirs	*newnode;
 
-	newnode = my_alloc(sizeof(t_dirs));
+	newnode = malloc(sizeof(t_dirs));
 	if (!newnode)
 		return (0);
 	newnode->key = key;

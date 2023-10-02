@@ -6,7 +6,7 @@ ifeq ($(OS),Linux)
 else
 	LIBS = $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L"$(HOME)/.brew/Cellar/glfw/3.3.8/lib" -pthread -lm -framework Cocoa -framework OpenGL -framework IOKit
 endif
-CFLAG= -O3 -Ofast -flto   -Wall -Wextra -Werror -g -fsanitize=address 
+CFLAG= -O3 -Ofast -flto   -Wall -Wextra -Werror #-g -fsanitize=address 
 HEADER = -I ./includes -I $(LIBMLX)/include
 CC= cc
 SRC= main.c event.c maps.c calculation.c draw_line.c draw_mini_map.c dor.c miniplayer.c calculation_1.c
